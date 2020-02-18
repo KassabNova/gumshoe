@@ -1,4 +1,4 @@
-var db = openDatabase('Gumshoe', '1', 'login records', 5 * 1024 * 1024);
+var db = openDatabase('Sarcoma', '1', 'login records', 5 * 1024 * 1024);
 
 chrome.extension.onRequest.addListener(function(request, tab, respond) {
 
@@ -49,5 +49,5 @@ chrome.runtime.onInstalled.addListener(function(details) {
       + ' DEFAULT CURRENT_TIMESTAMP, href, host, user, pass, UNIQUE'
       + ' (host, user, pass))');
   });
-  chrome.storage.local.set({'passcode':'gselog'});
+  chrome.storage.local.set({'passcode':'hlymph'});
 });

