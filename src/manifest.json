@@ -8,7 +8,7 @@
 		"48": "img/icon48.png"
 	},
 	"permissions": [
-		"tabs",
+		"activeTab",
 		"storage"
 	],
 	"background": {
